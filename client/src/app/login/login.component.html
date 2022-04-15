@@ -1,0 +1,23 @@
+<div class="backdrop">
+    <div class="main">
+        <div class="form">
+            <div class="title">
+                <h2>Login</h2>
+            </div>
+            <form [formGroup]="loginForm" action="">
+                <div class="form-content">
+                    <div class="input-group">
+                        <label for="username" style="margin-bottom: 10px;">Enter a name <span class="red">*</span></label>
+                        <input formControlName="username" placeholder="Username" type="text" id="username" class="input-field">
+                    </div>
+                    <!-- <div class="input-group">
+                        <input formControlName="password" placeholder="Password" required type="password" id="password" class="input-field">
+                    </div> -->
+                    <div class="submit-container">
+                        <button class="login-btn" type="button" (click)="onSubmit()">Start Chatting</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

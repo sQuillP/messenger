@@ -1,0 +1,70 @@
+<div class="container">
+    <div *ngIf="messages" class="header">
+        <div class="title">
+            <h2>Messaging: {{currentChatRoom.name}}</h2>
+        </div>
+        <div class="chat-img-wrapper">
+            <img class="img" src={{currentChatRoom.image}} alt="">
+        </div>
+    </div>
+    <div *ngIf="!!messages" class="message-content">
+        <div *ngFor="let message of messages; let index = i;" class="message-container">
+            <div *ngIf="fromSender(message)" class="msg-sent">
+                <div class="msg-body">
+                    <div class="msg-content">
+                        <p>{{message.content}}</p>
+                    </div>
+                    <div class="msg-img-col">
+                        <div class="msg-img-wrapper">
+                            <img src={{message.user.image}} alt="" class="img">
+                        </div>
+                    </div>
+                </div>
+                <div class="received-time">
+                    <p><small>Sent at {{message.time}}</small></p>
+                </div>
+            </div>
+            <div *ngIf="!fromSender(message)" class="msg-received">
+                <div class="msg-body">
+                    <div class="msg-img-col">
+                        <div class="msg-img-wrapper">
+                            <img src={{message.user.image}} alt="" class="img">
+                        </div>
+                    </div>
+                    <div class="msg-content">
+                        <p>{{message.content}}</p>
+                    </div>
+                </div>
+                <div class="received-time">
+                    <p><small>Received at {{message.time}}</small></p>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="userDisconnected" class="msg-container">
+            <div class="disconnect-msg">
+                <p><small><strong>{{currentChatRoom.name}}</strong> has disconnected. Messaging is no longer unavailable.</small></p>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!!messages" class="message-bar">
+        <div class="message-input">
+            <textarea [readonly]="userDisconnected" [(ngModel)]="this.sendMessage" placeholder="Send a message" name="" id="messageinput"></textarea>
+            <button (click)="onSendMessage()" class="message-send"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+    <div *ngIf="!messages" class="no-messages">
+        <div class="corner c1"></div>
+        <div class="corner c2"></div>
+        <div class="corner c3"></div>
+        <div class="corner c4"></div>
+        <div class="blurb">
+            <div class="message">
+                <h1>Chat app Version 1.0</h1>
+                <p>Click search a friend or group to start messaging.</p>
+            </div>
+            <div class="chat-logo-wrapper">
+                <img class="img" src="https://cdn-icons-png.flaticon.com/512/134/134914.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>

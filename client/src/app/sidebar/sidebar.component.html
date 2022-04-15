@@ -1,0 +1,35 @@
+<div class="main">
+    <div class="logo-wrapper">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <div class="sidebar-slider">
+        <div class="header">
+            <div class="searchbar-wrapper">
+                <input type="text" placeholder="Search" class="search-messenger">
+            </div>
+            <div class="tab-container">
+                <a class="options-btn two">Friends</a>
+            </div>
+        </div>
+        <div class="chat-list">
+            <div 
+            *ngFor="let user of userList; let index = i;" 
+            class="chat-item"
+            (click)="onChatSelect(user)"
+            >
+                <div class="chat-item-content">
+                    <div class="img-wrapper">
+                        <img src={{user.image}} alt="image goes here">
+                    </div>
+                    <div class="name">
+                        <p>{{user.name}}</p>
+                        <p *ngIf="currentCategory === 'groups'" class="small">{{item.users.length}} members in this group</p>
+                    </div>
+                </div>
+                <div *ngIf="user.unread_messages !== 0" class="msg-count">
+                    <p>{{user.unread_messages}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

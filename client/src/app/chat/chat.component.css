@@ -1,0 +1,21 @@
+.backdrop{
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    width: 100%;
+    min-width: 900px;
+    background: #f5f5f5;;
+}
+
+.main-content{
+    width: 50vw;
+    height: 80vh;
+    min-height: 700px;
+    min-width: 700px;
+    margin: 50px auto 0 auto;
+    background: white;
+    box-sizing: border-box;
+    /* padding: 0px 10px 10px 10px; */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
